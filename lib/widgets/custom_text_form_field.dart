@@ -26,9 +26,12 @@ class CustomTextFormField extends StatelessWidget {
     this.fillColor,
     this.filled = true,
     this.validator,
+    this.readOnly = false,
   }) : super(
           key: key,
         );
+
+  final bool readOnly;
 
   final Alignment? alignment;
 
@@ -87,6 +90,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget textFormFieldWidget(BuildContext context) => SizedBox(
         width: width ?? double.maxFinite,
         child: TextFormField(
+          readOnly: readOnly,
           scrollPadding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           controller: controller,

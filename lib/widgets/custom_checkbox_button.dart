@@ -97,7 +97,7 @@ class CustomCheckboxButton extends StatelessWidget {
             vertical: -4,
             horizontal: -4,
           ),
-          value: value ?? false,
+          value: value ?? true,
           checkColor: theme.colorScheme.onPrimary.withOpacity(1),
           onChanged: (value) {
             onChange(value!);

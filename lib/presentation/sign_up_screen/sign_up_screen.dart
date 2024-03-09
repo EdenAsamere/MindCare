@@ -48,7 +48,7 @@ class SignUpScreen extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "MediCare",
+                                  text: "MindCare",
                                   style: CustomTextStyles.headlineSmallff0040dd,
                                 ),
                                 TextSpan(
@@ -80,10 +80,13 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(height: 35.v),
                     _buildInputWithLabel(context),
                     SizedBox(height: 21.v),
-                    _buildInputFieldBase(context),
+                    _buildInputFieldBase(context, 'Password'),
+                    SizedBox(height: 21.v),
+                    _buildInputFieldBase(context, 'Confirm Password'),
                     SizedBox(height: 23.v),
                     CustomOutlinedButton(
                       text: "Continue",
+                      buttonStyle: CustomButtonStyles.fillBlue,
                     ),
                     SizedBox(height: 41.v),
                     Container(
@@ -172,12 +175,12 @@ class SignUpScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildInputFieldBase(BuildContext context) {
+  Widget _buildInputFieldBase(BuildContext context, String label) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Password",
+          label,
           style: CustomTextStyles.titleSmallBluegray80001,
         ),
         SizedBox(height: 7.v),
@@ -212,25 +215,6 @@ class SignUpScreen extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(vertical: 18.v),
         ),
         SizedBox(height: 9.v),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Password strength:",
-              style: theme.textTheme.bodyMedium,
-            ),
-            CustomImageView(
-              imagePath: ImageConstant.imgBar,
-              height: 8.v,
-              width: 228.h,
-              margin: EdgeInsets.only(
-                top: 2.v,
-                bottom: 6.v,
-              ),
-            ),
-          ],
-        ),
       ],
     );
   }

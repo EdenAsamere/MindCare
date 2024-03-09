@@ -24,85 +24,89 @@ class CalendarTwoScreen extends StatelessWidget {
         child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: _buildAppBar(context),
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 16.h),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 24.v),
-                      _buildFrame(context),
-                      SizedBox(height: 7.v),
-                      Text("See all your appointments",
-                          style: theme.textTheme.bodyLarge),
-                      SizedBox(height: 28.v),
-                      Text("Today’s Appointment",
-                          style: CustomTextStyles.titleMediumGray900_1),
-                      SizedBox(height: 9.v),
-                      _buildDoctor1(context),
-                      SizedBox(height: 8.v),
-                      Row(children: [
-                        CustomImageView(
-                            imagePath: ImageConstant.imgAddPrimary,
-                            height: 24.adaptSize,
-                            width: 24.adaptSize),
-                        Padding(
-                            padding: EdgeInsets.only(left: 10.h, top: 3.v),
-                            child: Text("Add an Appointment",
-                                style: CustomTextStyles.titleMediumPrimary))
-                      ]),
-                      SizedBox(height: 8.v),
-                      Divider(),
-                      Divider(),
-                      SizedBox(height: 25.v),
-                      Text("Tomorrow",
-                          style: CustomTextStyles.bodyLargeGray900),
-                      SizedBox(height: 11.v),
-                      CustomTextFormField(
-                          controller: doctorOneController,
-                          hintText: "Book an Appointment",
-                          hintStyle: CustomTextStyles.titleMediumPrimary,
-                          prefix: Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 10.h, vertical: 16.v),
-                              child: CustomImageView(
-                                  imagePath: ImageConstant.imgAddPrimary,
-                                  height: 24.adaptSize,
-                                  width: 24.adaptSize)),
-                          prefixConstraints: BoxConstraints(maxHeight: 56.v),
-                          borderDecoration:
-                              TextFormFieldStyleHelper.fillOnPrimary),
-                      SizedBox(height: 8.v),
-                      Divider(),
-                      SizedBox(height: 27.v),
-                      Text("Friday", style: CustomTextStyles.bodyLargeGray900),
-                      SizedBox(height: 9.v),
-                      CustomTextFormField(
-                          controller: doctorOneController1,
-                          hintText: "Book an Appointment",
-                          hintStyle: CustomTextStyles.titleMediumPrimary,
-                          textInputAction: TextInputAction.done,
-                          prefix: Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 10.h, vertical: 16.v),
-                              child: CustomImageView(
-                                  imagePath: ImageConstant.imgAddPrimary,
-                                  height: 24.adaptSize,
-                                  width: 24.adaptSize)),
-                          prefixConstraints: BoxConstraints(maxHeight: 56.v),
-                          borderDecoration:
-                              TextFormFieldStyleHelper.fillOnPrimary),
-                      SizedBox(height: 8.v),
-                      Divider(),
-                      SizedBox(height: 27.v),
-                      Text("Saturday",
-                          style: CustomTextStyles.bodyLargeGray900),
-                      SizedBox(height: 9.v),
-                      _buildDoctor2(context),
-                      SizedBox(height: 8.v),
-                      Divider()
-                    ])),
-            bottomNavigationBar: _buildBottomBar(context)));
+            body: SingleChildScrollView(
+              child: Container(
+                  width: double.maxFinite,
+                  padding: EdgeInsets.symmetric(horizontal: 16.h),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 24.v),
+                        _buildFrame(context),
+                        SizedBox(height: 7.v),
+                        Text("See all your appointments",
+                            style: theme.textTheme.bodyLarge),
+                        SizedBox(height: 28.v),
+                        Text("Today’s Appointment",
+                            style: CustomTextStyles.titleMediumGray900_1),
+                        SizedBox(height: 9.v),
+                        _buildDoctor1(context),
+                        SizedBox(height: 8.v),
+                        Row(children: [
+                          CustomImageView(
+                              imagePath: ImageConstant.imgAddPrimary,
+                              height: 24.adaptSize,
+                              width: 24.adaptSize),
+                          Padding(
+                              padding: EdgeInsets.only(left: 10.h, top: 3.v),
+                              child: Text("Add an Appointment",
+                                  style: CustomTextStyles.titleMediumPrimary))
+                        ]),
+                        SizedBox(height: 8.v),
+                        Divider(),
+                        Divider(),
+                        SizedBox(height: 25.v),
+                        Text("Tomorrow",
+                            style: CustomTextStyles.bodyLargeGray900),
+                        SizedBox(height: 11.v),
+                        CustomTextFormField(
+                            readOnly: true,
+                            controller: doctorOneController,
+                            hintText: "Book an Appointment",
+                            hintStyle: CustomTextStyles.titleMediumPrimary,
+                            prefix: Container(
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 10.h, vertical: 16.v),
+                                child: CustomImageView(
+                                    imagePath: ImageConstant.imgAddPrimary,
+                                    height: 24.adaptSize,
+                                    width: 24.adaptSize)),
+                            prefixConstraints: BoxConstraints(maxHeight: 56.v),
+                            borderDecoration:
+                                TextFormFieldStyleHelper.fillOnPrimary),
+                        SizedBox(height: 8.v),
+                        Divider(),
+                        SizedBox(height: 27.v),
+                        Text("Friday",
+                            style: CustomTextStyles.bodyLargeGray900),
+                        SizedBox(height: 9.v),
+                        CustomTextFormField(
+                            readOnly: true,
+                            controller: doctorOneController1,
+                            hintText: "Book an Appointment",
+                            hintStyle: CustomTextStyles.titleMediumPrimary,
+                            textInputAction: TextInputAction.done,
+                            prefix: Container(
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 10.h, vertical: 16.v),
+                                child: CustomImageView(
+                                    imagePath: ImageConstant.imgAddPrimary,
+                                    height: 24.adaptSize,
+                                    width: 24.adaptSize)),
+                            prefixConstraints: BoxConstraints(maxHeight: 56.v),
+                            borderDecoration:
+                                TextFormFieldStyleHelper.fillOnPrimary),
+                        SizedBox(height: 8.v),
+                        Divider(),
+                        SizedBox(height: 27.v),
+                        Text("Saturday",
+                            style: CustomTextStyles.bodyLargeGray900),
+                        SizedBox(height: 9.v),
+                        _buildDoctor2(context),
+                        SizedBox(height: 8.v),
+                        Divider()
+                      ])),
+            )));
   }
 
   /// Section Widget
@@ -233,31 +237,6 @@ class CalendarTwoScreen extends StatelessWidget {
         ]));
   }
 
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(onChanged: (BottomBarEnum type) {
-      Navigator.pushNamed(navigatorKey.currentContext!, getCurrentRoute(type));
-    });
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Home:
-        return AppRoutes.searchPage;
-      case BottomBarEnum.Search:
-        return "/";
-      case BottomBarEnum.Calendar:
-        return "/";
-      case BottomBarEnum.Message:
-        return "/";
-      case BottomBarEnum.Profile:
-        return "/";
-      default:
-        return "/";
-    }
-  }
-
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
@@ -270,6 +249,6 @@ class CalendarTwoScreen extends StatelessWidget {
 
   /// Navigates to the calendarOneScreen when the action is triggered.
   onTapImgCalendarMonth(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.calendarOneScreen);
+    // Navigator.pushNamed(context, AppRoutes.calendarOneScreen);
   }
 }

@@ -4,7 +4,6 @@ import 'package:mindcare_plus/widgets/custom_outlined_button.dart';
 import 'package:mindcare_plus/widgets/custom_phone_number.dart';
 import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_pickers.dart';
-import 'package:mindcare_plus/presentation/sign_up_two_page/sign_up_two_page.dart';
 import 'package:flutter/material.dart';
 import 'package:mindcare_plus/core/app_export.dart';
 
@@ -26,12 +25,21 @@ class SignUpTwoTabContainerScreenState
   TextEditingController lastNameController = TextEditingController();
 
   List<String> dropdownItemList = [
-    "Item One",
-    "Item Two",
-    "Item Three",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
-  Country selectedCountry = CountryPickerUtils.getCountryByPhoneCode('234');
+  Country selectedCountry = CountryPickerUtils.getCountryByPhoneCode('251');
 
   TextEditingController phoneNumberController = TextEditingController();
 
@@ -83,9 +91,9 @@ class SignUpTwoTabContainerScreenState
                         ),
                         SizedBox(height: 8.v),
                         CustomImageView(
-                          imagePath: ImageConstant.imgProgressbar,
+                          imagePath: ImageConstant.imgProgressbarBlueGray50,
                           height: 3.v,
-                          width: 358.h,
+                          width: 350.h,
                           radius: BorderRadius.circular(
                             1.h,
                           ),
@@ -101,6 +109,7 @@ class SignUpTwoTabContainerScreenState
                         SizedBox(height: 21.v),
                         _buildInputWithLabel4(context),
                         _buildTabBarView(context),
+                        _buildBottomPart(context),
                       ],
                     ),
                   ),
@@ -193,9 +202,8 @@ class SignUpTwoTabContainerScreenState
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomDropDown(
-                width: 140.h,
+                width: 150.h,
                 icon: Container(
-                  margin: EdgeInsets.fromLTRB(30.h, 16.v, 14.h, 16.v),
                   child: CustomImageView(
                     imagePath: ImageConstant.imgArrowdropup,
                     height: 24.adaptSize,
@@ -255,7 +263,9 @@ class SignUpTwoTabContainerScreenState
             country: selectedCountry,
             controller: phoneNumberController,
             onTap: (Country value) {
-              selectedCountry = value;
+              setState(() {
+                selectedCountry = value;
+              });
             },
           ),
         ],
@@ -280,9 +290,7 @@ class SignUpTwoTabContainerScreenState
             width: 358.h,
             decoration: BoxDecoration(
               color: appTheme.gray6001e,
-              borderRadius: BorderRadius.circular(
-                8.h,
-              ),
+              borderRadius: BorderRadius.circular(8.h),
             ),
             child: TabBar(
               controller: tabviewController,
@@ -317,22 +325,27 @@ class SignUpTwoTabContainerScreenState
                     color: appTheme.black900.withOpacity(0.04),
                     spreadRadius: 2.h,
                     blurRadius: 2.h,
-                    offset: Offset(
-                      0,
-                      3,
-                    ),
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),
               tabs: [
                 Tab(
-                  child: Text(
-                    "Male",
+                  child: Container(
+                    width: 180.h,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Male",
+                    ),
                   ),
                 ),
                 Tab(
-                  child: Text(
-                    "Female",
+                  child: Container(
+                    width: 180.h,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Female",
+                    ),
                   ),
                 ),
               ],
@@ -346,14 +359,48 @@ class SignUpTwoTabContainerScreenState
   /// Section Widget
   Widget _buildTabBarView(BuildContext context) {
     return SizedBox(
-      height: 216.v,
+      height: 20.v,
       child: TabBarView(
         controller: tabviewController,
-        children: [
-          SignUpTwoPage(),
-          SignUpTwoPage(),
-        ],
+        children: [],
       ),
     );
   }
+}
+
+Widget _buildBottomPart(BuildContext context) {
+  return Column(
+    children: [
+      SizedBox(height: 24.v),
+      Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.h),
+          child: Column(children: [
+            CustomOutlinedButton(
+                text: "Continue",
+                buttonStyle: CustomButtonStyles.fillBlue,
+                onPressed: () {
+                  // onTapContinue(context);
+                }),
+            SizedBox(height: 42.v),
+            GestureDetector(
+                onTap: () {
+                  // onTapTxtByprovidingyourmobil(context);
+                },
+                child: Container(
+                    width: 324.h,
+                    margin: EdgeInsets.only(
+                      left: 16.h,
+                      right: 17.h,
+                      bottom: 48.v,
+                    ),
+                    child: Text(
+                        "By providing your mobile number, you give us permission to contact you via text.",
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style:
+                            theme.textTheme.bodyLarge!.copyWith(height: 1.50))))
+          ]))
+    ],
+  );
 }

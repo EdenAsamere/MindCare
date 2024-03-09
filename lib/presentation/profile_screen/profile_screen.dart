@@ -61,13 +61,12 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 17.v),
                   _buildProfile(context),
-                  SizedBox(height: 20.v),
+                  // SizedBox(height: 20.v),
                 ],
               ),
             ),
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -119,7 +118,7 @@ class ProfileScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Nomso Onyemuwa",
+                  "Tadael Onyemuwa",
                   style: theme.textTheme.titleMedium,
                 ),
                 SizedBox(height: 7.v),
@@ -171,7 +170,7 @@ class ProfileScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "MediCare",
+                  "MindCare",
                   style: theme.textTheme.titleMedium,
                 ),
                 SizedBox(height: 7.v),
@@ -288,39 +287,11 @@ class ProfileScreen extends StatelessWidget {
           ),
         );
       },
-      itemCount: 3,
+      itemCount: 1,
       itemBuilder: (context, index) {
         return ProfileItemWidget();
       },
     );
-  }
-
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {
-        Navigator.pushNamed(
-            navigatorKey.currentContext!, getCurrentRoute(type));
-      },
-    );
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Home:
-        return AppRoutes.searchPage;
-      case BottomBarEnum.Search:
-        return "/";
-      case BottomBarEnum.Calendar:
-        return "/";
-      case BottomBarEnum.Message:
-        return "/";
-      case BottomBarEnum.Profile:
-        return "/";
-      default:
-        return "/";
-    }
   }
 
   ///Handling page based on route

@@ -19,85 +19,80 @@ class CalendarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            resizeToAvoidBottomInset: false,
-            appBar: _buildAppBar(context),
-            body: SizedBox(
-                width: SizeUtils.width,
-                child: SingleChildScrollView(
-                    child: Container(
-                        height: 734.v,
-                        width: double.maxFinite,
-                        margin: EdgeInsets.only(bottom: 5.v),
-                        child:
-                            Stack(alignment: Alignment.bottomCenter, children: [
-                          Align(
-                              alignment: Alignment.topCenter,
-                              child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16.h, vertical: 25.v),
-                                  child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                            width: 354.h,
-                                            child: Text(
-                                                "Confirm a date and time for your appointment with a general practictioner. Include a note aswell",
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: theme
-                                                    .textTheme.bodyLarge!
-                                                    .copyWith(height: 1.50))),
-                                        SizedBox(height: 8.v),
-                                        _buildOtpView(context),
-                                        SizedBox(height: 41.v),
-                                        Text("DOCTOR",
-                                            style: theme.textTheme.titleSmall),
-                                        SizedBox(height: 17.v),
-                                        _buildDoctor1(context),
-                                        SizedBox(height: 16.v),
-                                        Divider(),
-                                        SizedBox(height: 33.v),
-                                        Text("SERVICE",
-                                            style: theme.textTheme.titleSmall),
-                                        SizedBox(height: 19.v),
-                                        _buildFrame(context),
-                                        SizedBox(height: 35.v),
-                                        Text("DATE & TIME",
-                                            style: theme.textTheme.titleSmall),
-                                        SizedBox(height: 9.v),
-                                        _buildFrame1(context),
-                                        SizedBox(height: 32.v),
-                                        Divider(),
-                                        SizedBox(height: 25.v),
-                                        Text("NOTE",
-                                            style: theme.textTheme.titleSmall),
-                                        SizedBox(height: 9.v),
-                                        _buildMegaphone(context),
-                                        SizedBox(height: 25.v),
-                                        Text("ATTACHMENTS",
-                                            style: theme.textTheme.titleSmall),
-                                        SizedBox(height: 9.v),
-                                        Row(children: [
-                                          CustomImageView(
-                                              imagePath:
-                                                  ImageConstant.imgAddPrimary,
-                                              height: 24.adaptSize,
-                                              width: 24.adaptSize),
-                                          Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 10.h,
-                                                  top: 3.v,
-                                                  bottom: 3.v),
-                                              child: Text("Add Attachments",
-                                                  style: CustomTextStyles
-                                                      .titleSmallPrimary))
-                                        ]),
-                                        SizedBox(height: 22.v)
-                                      ]))),
-                          _buildInputField(context)
-                        ]))))));
+      resizeToAvoidBottomInset: false,
+      appBar: _buildAppBar(context),
+      body: SizedBox(
+          width: SizeUtils.width,
+          child: SingleChildScrollView(
+              child: Container(
+                  // height: 734.v,
+                  width: double.maxFinite,
+                  margin: EdgeInsets.only(bottom: 5.v),
+                  child: Stack(alignment: Alignment.bottomCenter, children: [
+                    Align(
+                        alignment: Alignment.topCenter,
+                        child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16.h, vertical: 25.v),
+                            child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                      width: 354.h,
+                                      child: Text(
+                                          "Confirm a date and time for your appointment with a general practictioner. Include a note aswell",
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: theme.textTheme.bodyLarge!
+                                              .copyWith(height: 1.50))),
+                                  SizedBox(height: 8.v),
+                                  _buildOtpView(context),
+                                  SizedBox(height: 41.v),
+                                  Text("DOCTOR",
+                                      style: theme.textTheme.titleSmall),
+                                  SizedBox(height: 17.v),
+                                  _buildDoctor1(context),
+                                  SizedBox(height: 16.v),
+                                  Divider(),
+                                  SizedBox(height: 33.v),
+                                  Text("SERVICE",
+                                      style: theme.textTheme.titleSmall),
+                                  SizedBox(height: 19.v),
+                                  _buildFrame(context),
+                                  SizedBox(height: 35.v),
+                                  Text("DATE & TIME",
+                                      style: theme.textTheme.titleSmall),
+                                  SizedBox(height: 9.v),
+                                  _buildFrame1(context),
+                                  SizedBox(height: 32.v),
+                                  Divider(),
+                                  SizedBox(height: 25.v),
+                                  Text("NOTE",
+                                      style: theme.textTheme.titleSmall),
+                                  SizedBox(height: 9.v),
+                                  _buildMegaphone(context),
+                                  SizedBox(height: 25.v),
+                                  Text("ATTACHMENTS",
+                                      style: theme.textTheme.titleSmall),
+                                  SizedBox(height: 9.v),
+                                  Row(children: [
+                                    CustomImageView(
+                                        imagePath: ImageConstant.imgAddPrimary,
+                                        height: 24.adaptSize,
+                                        width: 24.adaptSize),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10.h, top: 3.v, bottom: 3.v),
+                                        child: Text("Add Attachments",
+                                            style: CustomTextStyles
+                                                .titleSmallPrimary))
+                                  ]),
+                                  SizedBox(height: 22.v)
+                                ]))),
+                  ])))),
+      bottomNavigationBar: _buildInputField(context),
+    ));
   }
 
   /// Section Widget
@@ -113,8 +108,6 @@ class CalendarScreen extends StatelessWidget {
         title: Padding(
             padding: EdgeInsets.only(left: 13.h),
             child: Row(children: [
-              AppbarSubtitle(
-                  text: "Back", margin: EdgeInsets.only(bottom: 3.v)),
               AppbarTitle(
                   text: "Book an Appointment",
                   margin: EdgeInsets.only(left: 22.h))
@@ -188,7 +181,7 @@ class CalendarScreen extends StatelessWidget {
                   width: 20.h,
                   margin: EdgeInsets.symmetric(vertical: 9.v),
                   decoration: BoxDecoration(color: appTheme.gray900)),
-              Text("Video Consultation (₦5,700)",
+              Text("Video Consultation (\$55/hr)",
                   style: CustomTextStyles.titleMediumBluegray70002)
             ]));
   }
@@ -271,13 +264,24 @@ class CalendarScreen extends StatelessWidget {
   }
 
   /// Section Widget
+
+  /// Section Widget
   Widget _buildInputField(BuildContext context) {
-    return Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 42.v),
-            decoration: AppDecoration.outlineBlack,
-            child: _buildHeathProfile(context)));
+    return Container(
+        margin: EdgeInsets.only(left: 16.h, right: 16.h, bottom: 2.v),
+        child: CustomOutlinedButton(
+            text: "Next",
+            buttonStyle: CustomButtonStyles.fillBlue,
+            rightIcon: Container(
+                margin: EdgeInsets.only(left: 30.h),
+                child: CustomImageView(
+                    imagePath: ImageConstant.imgArrowrightOnprimary,
+                    height: 24.adaptSize,
+                    width: 24.adaptSize)),
+            buttonTextStyle: CustomTextStyles.titleMediumOnPrimary,
+            onPressed: () {
+              onTapNext(context);
+            }));
   }
 
   /// Navigates back to the previous screen.
@@ -287,11 +291,15 @@ class CalendarScreen extends StatelessWidget {
 
   /// Navigates to the dateAndTimePickerScreen when the action is triggered.
   onTapndWedJune2022(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.dateAndTimePickerScreen);
+    // Navigator.pushNamed(context, AppRoutes.dateAndTimePickerScreen);
   }
 
   /// Navigates to the bookAppointmentThreeScreen when the action is triggered.
   onTapHeathProfile(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.bookAppointmentThreeScreen);
+    // Navigator.pushNamed(context, AppRoutes.bookAppointmentThreeScreen);
+  }
+
+  onTapNext(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.bookAppointmentOneScreen);
   }
 }

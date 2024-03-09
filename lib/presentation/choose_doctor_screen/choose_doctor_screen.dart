@@ -1,6 +1,5 @@
 import 'package:mindcare_plus/widgets/app_bar/custom_app_bar.dart';
 import 'package:mindcare_plus/widgets/app_bar/appbar_leading_image.dart';
-import 'package:mindcare_plus/widgets/app_bar/appbar_subtitle.dart';
 import 'package:mindcare_plus/widgets/app_bar/appbar_title.dart';
 import 'package:mindcare_plus/widgets/custom_search_view.dart';
 import 'package:mindcare_plus/widgets/custom_drop_down.dart';
@@ -15,9 +14,11 @@ class ChooseDoctorScreen extends StatelessWidget {
 
   TextEditingController searchController = TextEditingController();
 
-  List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
-
-  List<String> dropdownItemList1 = ["Item One", "Item Two", "Item Three"];
+  List<String> dropdownItemList = [
+    "Today",
+    "This Week",
+    "This Month",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +41,6 @@ class ChooseDoctorScreen extends StatelessWidget {
                                   hintText: "Search")),
                           SizedBox(height: 24.v),
                           _buildSort(context),
-                          SizedBox(height: 45.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Text("Doctors close-by",
-                                      style: CustomTextStyles
-                                          .titleLargeBlack900))),
-                          SizedBox(height: 9.v),
                           _buildInputField(context),
                           SizedBox(height: 8.v),
                           _buildDoctor2(context),
@@ -97,14 +89,8 @@ class ChooseDoctorScreen extends StatelessWidget {
             onTap: () {
               onTapArrowLeft(context);
             }),
-        title: Padding(
-            padding: EdgeInsets.only(left: 4.h),
-            child: Row(children: [
-              AppbarSubtitle(
-                  text: "Back", margin: EdgeInsets.symmetric(vertical: 1.v)),
-              AppbarTitle(
-                  text: "Medical Officers", margin: EdgeInsets.only(left: 44.h))
-            ])),
+        title: AppbarTitle(
+            text: "Choose Doctor", margin: EdgeInsets.only(left: 44.h)),
         styleType: Style.bgShadow);
   }
 
@@ -121,7 +107,7 @@ class ChooseDoctorScreen extends StatelessWidget {
               child: CustomDropDown(
                   width: 140.h,
                   icon: Container(
-                      margin: EdgeInsets.fromLTRB(1.h, 8.v, 8.h, 8.v),
+                      margin: EdgeInsets.only(right: 12),
                       child: CustomImageView(
                           imagePath: ImageConstant.imgArrowdropdown,
                           height: 24.adaptSize,
@@ -134,28 +120,21 @@ class ChooseDoctorScreen extends StatelessWidget {
           Padding(
               padding: EdgeInsets.symmetric(vertical: 16.v),
               child: CustomDropDown(
-                  width: 100.h,
-                  icon: Container(
-                      margin: EdgeInsets.only(right: 8.h),
-                      child: CustomImageView(
-                          imagePath: ImageConstant.imgArrowdropdownBlueGray500,
-                          height: 24.adaptSize,
-                          width: 24.adaptSize)),
+                  width: 80.h,
+                  icon: Container(),
                   hintText: "In-Person",
                   hintStyle: theme.textTheme.bodyMedium!,
-                  items: dropdownItemList1,
                   borderDecoration:
                       DropDownStyleHelper.outlinePrimaryContainerTL20,
                   onChanged: (value) {})),
           SizedBox(
               height: 72.v,
-              width: 109.h,
+              width: 111.h,
               child: Stack(alignment: Alignment.centerRight, children: [
                 Align(
                     alignment: Alignment.centerLeft,
                     child: Container(
-                        margin: EdgeInsets.only(
-                            top: 16.v, right: 20.h, bottom: 16.v),
+                        width: 77,
                         padding: EdgeInsets.all(7.h),
                         decoration: AppDecoration.outlinePrimaryContainer1
                             .copyWith(
@@ -165,18 +144,13 @@ class ChooseDoctorScreen extends StatelessWidget {
                               padding: EdgeInsets.symmetric(vertical: 3.v),
                               child: Text("Via Text",
                                   style: theme.textTheme.bodyMedium)),
-                          CustomImageView(
-                              imagePath:
-                                  ImageConstant.imgArrowdropdownBlueGray500,
-                              height: 24.adaptSize,
-                              width: 24.adaptSize)
                         ]))),
                 Align(
                     alignment: Alignment.centerRight,
                     child: Container(
                         height: 72.v,
-                        width: 44.h,
-                        padding: EdgeInsets.fromLTRB(9.h, 24.v, 10.h, 24.v),
+                        width: 33.h,
+                        // padding: EdgeInsets.fromLTRB(9.h, 24.v, 10.h, 24.v),
                         decoration: AppDecoration.outlinePrimaryContainer2,
                         child: CustomImageView(
                             imagePath: ImageConstant.imgFilterList,
@@ -656,10 +630,10 @@ class ChooseDoctorScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildInputField1(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(left: 16.h, right: 16.h, bottom: 42.v),
-        decoration: AppDecoration.outlineBlack,
+        margin: EdgeInsets.only(left: 16.h, right: 16.h, bottom: 2.v),
         child: CustomOutlinedButton(
             text: "Next",
+            buttonStyle: CustomButtonStyles.fillBlue,
             rightIcon: Container(
                 margin: EdgeInsets.only(left: 30.h),
                 child: CustomImageView(

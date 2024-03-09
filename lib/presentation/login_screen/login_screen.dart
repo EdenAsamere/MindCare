@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "MediCare",
+                                  text: "MindCare",
                                   style: CustomTextStyles.headlineSmallff0040dd,
                                 ),
                                 TextSpan(
@@ -81,14 +81,17 @@ class LoginScreen extends StatelessWidget {
                       style: theme.textTheme.bodyLarge,
                     ),
                     SizedBox(height: 36.v),
-                    _buildInputWithLabel(context),
-                    SizedBox(height: 21.v),
+                    _buildInputWithLabel(
+                      context,
+                    ),
+                    SizedBox(height: 11.v),
                     _buildInputWithLabel1(context),
-                    SizedBox(height: 40.v),
+                    SizedBox(height: 20.v),
                     _buildActionsRow(context),
                     SizedBox(height: 37.v),
                     CustomOutlinedButton(
                       text: "Sign In",
+                      buttonStyle: CustomButtonStyles.fillBlue,
                     ),
                     SizedBox(height: 27.v),
                     _buildDivide(context),
@@ -211,16 +214,8 @@ class LoginScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildActionsRow(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        CustomCheckboxButton(
-          text: "Remember for 30 days",
-          value: rememberfordays,
-          textStyle: CustomTextStyles.titleSmallBluegray80001,
-          onChange: (value) {
-            rememberfordays = value;
-          },
-        ),
         Text(
           "Forgot Password?",
           style: CustomTextStyles.titleSmallOnError,

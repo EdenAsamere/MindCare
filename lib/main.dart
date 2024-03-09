@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           theme: theme,
           title: 'MindCare Plus',
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.homescreenOneScreen,
+          initialRoute: AppRoutes.homeLayout,
           routes: AppRoutes.routes,
         );
       },

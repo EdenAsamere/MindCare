@@ -21,29 +21,30 @@ class MessesagesOneScreen extends StatelessWidget {
         child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: _buildAppBar(context),
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 24.v),
-                decoration: AppDecoration.fillOnPrimary,
-                child: Column(children: [
-                  CustomSearchView(
-                      controller: searchController, hintText: "Search"),
-                  SizedBox(height: 10.v),
-                  _buildMessagesThreadRow1(context),
-                  _buildMessagesThreadRow2(context),
-                  _buildMessagesThreadRow(context,
-                      contactName: "Dr. Eze",
-                      date: "19/06/2022",
-                      messagePreview: "When you’re free come...."),
-                  _buildMessagesThreadRow4(context),
-                  _buildMessagesThreadRow5(context),
-                  SizedBox(height: 5.v),
-                  _buildMessagesThreadRow(context,
-                      contactName: "Dr. Petr Cech",
-                      date: "18/07/2021",
-                      messagePreview: "We need to sign players....")
-                ])),
-            bottomNavigationBar: _buildBottomBar(context)));
+            body: SingleChildScrollView(
+              child: Container(
+                  width: double.maxFinite,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.h, vertical: 24.v),
+                  decoration: AppDecoration.fillOnPrimary,
+                  child: Column(children: [
+                    CustomSearchView(
+                        controller: searchController, hintText: "Search"),
+                    SizedBox(height: 10.v),
+                    _buildMessagesThreadRow1(context),
+                    _buildMessagesThreadRow(context,
+                        contactName: "Dr. Eze",
+                        date: "19/06/2022",
+                        messagePreview: "When you’re free come...."),
+                    _buildMessagesThreadRow4(context),
+                    _buildMessagesThreadRow5(context),
+                    SizedBox(height: 5.v),
+                    _buildMessagesThreadRow(context,
+                        contactName: "Dr. Petr Cech",
+                        date: "18/07/2021",
+                        messagePreview: "We need to sign players....")
+                  ])),
+            )));
   }
 
   /// Section Widget
@@ -109,59 +110,6 @@ class MessesagesOneScreen extends StatelessWidget {
                                     EdgeInsets.fromLTRB(14.h, 5.v, 16.h, 37.v))
                           ])))
             ])));
-  }
-
-  /// Section Widget
-  Widget _buildMessagesThreadRow2(BuildContext context) {
-    return Container(
-        decoration: AppDecoration.fillOnPrimary,
-        child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          CustomImageView(
-              imagePath: ImageConstant.imgMessagesAvatar,
-              height: 45.adaptSize,
-              width: 45.adaptSize,
-              radius: BorderRadius.circular(22.h),
-              margin: EdgeInsets.symmetric(vertical: 15.v)),
-          Container(
-              height: 76.v,
-              width: 285.h,
-              margin: EdgeInsets.only(left: 11.h),
-              child: Stack(alignment: Alignment.bottomLeft, children: [
-                Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                        width: 285.h,
-                        padding: EdgeInsets.symmetric(vertical: 12.v),
-                        decoration: AppDecoration.outlineGray,
-                        child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                  padding: EdgeInsets.only(bottom: 29.v),
-                                  child: Text("Support",
-                                      style: CustomTextStyles
-                                          .titleMediumBlack90018)),
-                              Spacer(),
-                              Padding(
-                                  padding: EdgeInsets.only(bottom: 32.v),
-                                  child: Text("Wed",
-                                      style:
-                                          CustomTextStyles.bodyMediumGray800)),
-                              CustomImageView(
-                                  imagePath: ImageConstant.imgArrowRightGray800,
-                                  height: 11.v,
-                                  width: 6.h,
-                                  margin: EdgeInsets.fromLTRB(
-                                      14.h, 3.v, 16.h, 35.v))
-                            ]))),
-                Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(
-                        padding: EdgeInsets.only(bottom: 19.v),
-                        child: Text("Your issue has been escalated....",
-                            style: CustomTextStyles.bodyLargeGray800)))
-              ]))
-        ]));
   }
 
   /// Section Widget
@@ -260,13 +208,6 @@ class MessesagesOneScreen extends StatelessWidget {
         ]));
   }
 
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(onChanged: (BottomBarEnum type) {
-      Navigator.pushNamed(navigatorKey.currentContext!, getCurrentRoute(type));
-    });
-  }
-
   /// Common widget
   Widget _buildMessagesThreadRow(
     BuildContext context, {
@@ -320,24 +261,6 @@ class MessesagesOneScreen extends StatelessWidget {
                         SizedBox(height: 6.v)
                       ])))
         ]));
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Home:
-        return AppRoutes.searchPage;
-      case BottomBarEnum.Search:
-        return "/";
-      case BottomBarEnum.Calendar:
-        return "/";
-      case BottomBarEnum.Message:
-        return "/";
-      case BottomBarEnum.Profile:
-        return "/";
-      default:
-        return "/";
-    }
   }
 
   ///Handling page based on route

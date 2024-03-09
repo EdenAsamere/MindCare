@@ -1,4 +1,3 @@
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:mindcare_plus/widgets/custom_outlined_button.dart';
 import 'package:flutter/material.dart';
 import 'package:mindcare_plus/core/app_export.dart';
@@ -14,7 +13,7 @@ class OnboardingTwoScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          height: 797.v,
+          height: 844.v,
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
             horizontal: 16.h,
@@ -59,19 +58,7 @@ class OnboardingTwoScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 46.v),
-                    SizedBox(
-                      height: 24.v,
-                      child: AnimatedSmoothIndicator(
-                        activeIndex: 0,
-                        count: 2,
-                        effect: ScrollingDotsEffect(
-                          activeDotColor: Color(0X1212121D),
-                          dotHeight: 24.v,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 35.v),
+                    SizedBox(height: 90.v),
                     Container(
                       width: 349.h,
                       margin: EdgeInsets.symmetric(horizontal: 4.h),
@@ -101,6 +88,7 @@ class OnboardingTwoScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 30.v),
                     CustomOutlinedButton(
+                      buttonStyle: CustomButtonStyles.fillBlue,
                       text: "Sign In",
                     ),
                     SizedBox(height: 12.v),

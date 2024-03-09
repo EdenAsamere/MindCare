@@ -104,7 +104,7 @@ class CustomSearchView extends StatelessWidget {
         hintStyle: hintStyle ?? CustomTextStyles.titleMediumGray800,
         prefixIcon: prefix ??
             Container(
-              margin: EdgeInsets.fromLTRB(8.h, 16.v, 6.h, 16.v),
+              margin: EdgeInsets.fromLTRB(12.h, 16.v, 10.h, 16.v),
               child: CustomImageView(
                 imagePath: ImageConstant.imgSearch,
                 height: 15.adaptSize,
@@ -116,16 +116,11 @@ class CustomSearchView extends StatelessWidget {
               maxHeight: 48.v,
             ),
         suffixIcon: suffix ??
-            Padding(
-              padding: EdgeInsets.only(
-                right: 15.h,
-              ),
-              child: IconButton(
-                onPressed: () => controller!.clear(),
-                icon: Icon(
-                  Icons.clear,
-                  color: Colors.grey.shade600,
-                ),
+            IconButton(
+              onPressed: () => controller!.clear(),
+              icon: Icon(
+                Icons.clear,
+                color: Colors.grey.shade600,
               ),
             ),
         suffixIconConstraints: suffixConstraints ??

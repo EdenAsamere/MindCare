@@ -1,8 +1,6 @@
 import 'package:mindcare_plus/widgets/app_bar/custom_app_bar.dart';
 import 'package:mindcare_plus/widgets/app_bar/appbar_leading_image.dart';
 import 'package:mindcare_plus/widgets/app_bar/appbar_title_circleimage.dart';
-import 'package:mindcare_plus/widgets/app_bar/appbar_subtitle_one.dart';
-import 'package:mindcare_plus/widgets/app_bar/appbar_title_image.dart';
 import 'package:mindcare_plus/widgets/custom_outlined_button.dart';
 import 'package:flutter/material.dart';
 import 'package:mindcare_plus/core/app_export.dart';
@@ -14,29 +12,31 @@ class MessesagesTwoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: _buildAppBar(context),
-            body: SizedBox(
-                height: 717.v,
-                width: double.maxFinite,
-                child: Stack(alignment: Alignment.bottomCenter, children: [
-                  Align(
-                      alignment: Alignment.topCenter,
-                      child: Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16.h, vertical: 25.v),
-                          child:
-                              Column(mainAxisSize: MainAxisSize.min, children: [
-                            _buildSenderMessageWith(context),
-                            SizedBox(height: 19.v),
-                            _buildRecipientMessage(context),
-                            SizedBox(height: 26.v),
-                            _buildFrame(context),
-                            SizedBox(height: 27.v),
-                            _buildSenderMessageWith1(context),
-                            SizedBox(height: 22.v)
-                          ]))),
-                  _buildInputField(context)
-                ]))));
+      resizeToAvoidBottomInset: true,
+      appBar: _buildAppBar(context),
+      body: SizedBox(
+          width: double.maxFinite,
+          child: Column(children: [
+            Expanded(
+                // alignment: Alignment.topCenter,
+                child: Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.h, vertical: 25.v),
+                    child: SingleChildScrollView(
+                      child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        _buildSenderMessageWith(context),
+                        SizedBox(height: 19.v),
+                        _buildRecipientMessage(context),
+                        SizedBox(height: 26.v),
+                        _buildFrame(context),
+                        SizedBox(height: 27.v),
+                        _buildSenderMessageWith1(context),
+                        SizedBox(height: 22.v)
+                      ]),
+                    ))),
+            _buildInputField(context),
+          ])),
+    ));
   }
 
   /// Section Widget
@@ -46,23 +46,14 @@ class MessesagesTwoScreen extends StatelessWidget {
         leadingWidth: 34.h,
         leading: AppbarLeadingImage(
             imagePath: ImageConstant.imgArrowLeftPrimary,
-            margin: EdgeInsets.only(left: 16.h, top: 26.v, bottom: 29.v),
+            margin: EdgeInsets.only(left: 16.h, top: 6.v, bottom: 10.v),
             onTap: () {
               onTapArrowLeft(context);
             }),
         centerTitle: true,
-        title: Column(children: [
-          AppbarTitleCircleimage(
-              imagePath: ImageConstant.imgRectangle250x50,
-              margin: EdgeInsets.symmetric(horizontal: 3.h)),
-          SizedBox(height: 6.v),
-          Row(children: [
-            AppbarSubtitleOne(text: "Dr. Frank"),
-            AppbarTitleImage(
-                imagePath: ImageConstant.imgArrowRightGray8007x4,
-                margin: EdgeInsets.only(left: 3.h, top: 3.v, bottom: 3.v))
-          ])
-        ]),
+        title: AppbarTitleCircleimage(
+            imagePath: ImageConstant.imgRectangle250x50,
+            margin: EdgeInsets.symmetric(horizontal: 3.h)),
         styleType: Style.bgOutline);
   }
 
@@ -73,11 +64,11 @@ class MessesagesTwoScreen extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(children: [
             CustomImageView(
-                imagePath: ImageConstant.imgRectangle230x30,
-                height: 30.adaptSize,
-                width: 30.adaptSize,
-                radius: BorderRadius.circular(15.h),
-                margin: EdgeInsets.only(top: 92.v)),
+              imagePath: ImageConstant.imgRectangle230x30,
+              height: 30.adaptSize,
+              width: 30.adaptSize,
+              radius: BorderRadius.circular(15.h),
+            ),
             Expanded(
                 child: Padding(
                     padding: EdgeInsets.only(left: 11.h),
@@ -131,13 +122,12 @@ class MessesagesTwoScreen extends StatelessWidget {
                                     style: theme.textTheme.bodyMedium)),
                             Padding(
                                 padding: EdgeInsets.only(left: 16.h),
-                                child: Text("Nomso Onyemuwa",
+                                child: Text("Tadael Onyemuwa",
                                     style:
                                         CustomTextStyles.titleMediumBlack900_1))
                           ]))),
               SizedBox(height: 9.v),
               SizedBox(
-                  height: 72.v,
                   width: 306.h,
                   child: Stack(alignment: Alignment.bottomRight, children: [
                     Align(
@@ -284,55 +274,54 @@ class MessesagesTwoScreen extends StatelessWidget {
 
   /// Section Widget
   Widget _buildInputField(BuildContext context) {
-    return Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 25.h, vertical: 12.v),
-            decoration: AppDecoration.outlineBlack900,
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
-              Container(
-                  width: 332.h,
-                  margin: EdgeInsets.only(right: 5.h),
-                  child: Text(
-                      "Yes, I am a lot better. Product designing is taking a toll on me. I need a vaction after this.. But i’m very much open to take more jobs.",
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: CustomTextStyles.bodyLargeBluegray70002
-                          .copyWith(height: 1.50))),
-              SizedBox(height: 18.v),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                CustomImageView(
-                    imagePath: ImageConstant.imgAlternateEmail,
-                    height: 20.adaptSize,
-                    width: 20.adaptSize),
-                CustomImageView(
-                    imagePath: ImageConstant.imgAttachFile,
-                    height: 20.adaptSize,
-                    width: 20.adaptSize,
-                    margin: EdgeInsets.only(left: 10.h)),
-                CustomImageView(
-                    imagePath: ImageConstant.imgImageBlueGray300,
-                    height: 20.adaptSize,
-                    width: 20.adaptSize,
-                    margin: EdgeInsets.only(left: 10.h)),
-                CustomImageView(
-                    imagePath: ImageConstant.imgSentimentSatisfiedAlt,
-                    height: 20.adaptSize,
-                    width: 20.adaptSize,
-                    margin: EdgeInsets.only(left: 10.h)),
-                CustomImageView(
-                    imagePath: ImageConstant.imgMoreVert,
-                    height: 20.adaptSize,
-                    width: 20.adaptSize,
-                    margin: EdgeInsets.only(left: 10.h)),
-                Spacer(),
-                CustomImageView(
-                    imagePath: ImageConstant.imgSend,
-                    height: 20.adaptSize,
-                    width: 20.adaptSize)
-              ]),
-              SizedBox(height: 40.v)
-            ])));
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: 15.h),
+        decoration: AppDecoration.outlineBlack900,
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Container(
+            width: 332.h,
+            margin: EdgeInsets.only(right: 5.h),
+            child: TextField(
+                maxLines: 3,
+                minLines: 1,
+                // overflow: TextOverflow.ellipsis,
+                style: CustomTextStyles.bodyLargeBluegray70002
+                    .copyWith(height: 1.50)),
+          ),
+          SizedBox(height: 18.v),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            CustomImageView(
+                imagePath: ImageConstant.imgAlternateEmail,
+                height: 20.adaptSize,
+                width: 20.adaptSize),
+            CustomImageView(
+                imagePath: ImageConstant.imgAttachFile,
+                height: 20.adaptSize,
+                width: 20.adaptSize,
+                margin: EdgeInsets.only(left: 10.h)),
+            CustomImageView(
+                imagePath: ImageConstant.imgImageBlueGray300,
+                height: 20.adaptSize,
+                width: 20.adaptSize,
+                margin: EdgeInsets.only(left: 10.h)),
+            CustomImageView(
+                imagePath: ImageConstant.imgSentimentSatisfiedAlt,
+                height: 20.adaptSize,
+                width: 20.adaptSize,
+                margin: EdgeInsets.only(left: 10.h)),
+            CustomImageView(
+                imagePath: ImageConstant.imgMoreVert,
+                height: 20.adaptSize,
+                width: 20.adaptSize,
+                margin: EdgeInsets.only(left: 10.h)),
+            Spacer(),
+            CustomImageView(
+                imagePath: ImageConstant.imgSend,
+                height: 20.adaptSize,
+                width: 20.adaptSize)
+          ]),
+          SizedBox(height: 20.v)
+        ]));
   }
 
   /// Common widget
@@ -363,7 +352,6 @@ class MessesagesTwoScreen extends StatelessWidget {
     required String message,
   }) {
     return SizedBox(
-        height: 32.v,
         width: 307.h,
         child: Stack(alignment: Alignment.bottomLeft, children: [
           Align(

@@ -1,6 +1,5 @@
 import 'package:mindcare_plus/widgets/app_bar/custom_app_bar.dart';
 import 'package:mindcare_plus/widgets/app_bar/appbar_leading_image.dart';
-import 'package:mindcare_plus/widgets/app_bar/appbar_subtitle.dart';
 import 'package:mindcare_plus/widgets/app_bar/appbar_title.dart';
 import 'package:mindcare_plus/widgets/custom_elevated_button.dart';
 import 'package:mindcare_plus/widgets/custom_text_form_field.dart';
@@ -27,130 +26,117 @@ class BookAppointmentOneScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            resizeToAvoidBottomInset: false,
-            appBar: _buildAppBar(context),
-            body: Form(
-                key: _formKey,
-                child: SingleChildScrollView(
-                    child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 25.v),
-                        decoration: AppDecoration.fillOnPrimary,
-                        child: Column(children: [
-                          Container(
-                              width: 350.h,
-                              margin: EdgeInsets.only(left: 16.h, right: 23.h),
-                              child: Text(
-                                  "Make payment to confirm your appointment with your doctor. ",
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: theme.textTheme.bodyLarge!
-                                      .copyWith(height: 1.50))),
-                          SizedBox(height: 8.v),
-                          _buildProgress(context),
-                          SizedBox(height: 40.v),
-                          _buildDoctor1(context),
-                          SizedBox(height: 16.v),
-                          Divider(indent: 16.h, endIndent: 16.h),
-                          SizedBox(height: 35.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Text("ORDER SUMMARY",
-                                      style: CustomTextStyles
-                                          .titleMediumBluegray500))),
-                          SizedBox(height: 21.v),
-                          _buildFrame(context),
-                          SizedBox(height: 16.v),
-                          _buildTile(context),
-                          SizedBox(height: 32.v),
-                          Divider(indent: 16.h, endIndent: 16.h),
-                          SizedBox(height: 35.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Text("Use Health Insurance",
-                                      style: CustomTextStyles
-                                          .titleMediumGray900))),
-                          SizedBox(height: 21.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                  width: 343.h,
-                                  margin:
-                                      EdgeInsets.only(left: 16.h, right: 30.h),
-                                  child: Text(
-                                      "Add your insurance plan for additional potential savings and discounts.",
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: theme.textTheme.bodyLarge!
-                                          .copyWith(height: 1.50)))),
-                          SizedBox(height: 14.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Row(children: [
-                                    CustomImageView(
-                                        imagePath: ImageConstant.imgAddPrimary,
-                                        height: 24.adaptSize,
-                                        width: 24.adaptSize),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 10.h, bottom: 3.v),
-                                        child: Text("Add Insurance",
-                                            style: CustomTextStyles
-                                                .titleMediumPrimary))
-                                  ]))),
-                          SizedBox(height: 32.v),
-                          Divider(indent: 16.h, endIndent: 16.h),
-                          SizedBox(height: 35.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Text("Select Payment Method",
-                                      style: CustomTextStyles
-                                          .titleMediumBlack900))),
-                          SizedBox(height: 25.v),
-                          _buildInputField(context),
-                          SizedBox(height: 25.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Text("Card Holders Name",
-                                      style: CustomTextStyles
-                                          .titleSmallBluegray80001))),
-                          SizedBox(height: 7.v),
-                          _buildName(context),
-                          SizedBox(height: 21.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Text("Card Numbers",
-                                      style: CustomTextStyles
-                                          .titleSmallBluegray80001))),
-                          SizedBox(height: 7.v),
-                          _buildCardNumber(context),
-                          SizedBox(height: 21.v),
-                          _buildFrame1(context),
-                          SizedBox(height: 41.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Text("Other Services",
-                                      style: CustomTextStyles
-                                          .titleMediumBlack900_1))),
-                          SizedBox(height: 13.v),
-                          _buildPayment(context),
-                          SizedBox(height: 33.v),
-                          _buildInputField1(context),
-                          SizedBox(height: 22.v)
-                        ]))))));
+      resizeToAvoidBottomInset: false,
+      appBar: _buildAppBar(context),
+      body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+              child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 25.v),
+                  decoration: AppDecoration.fillOnPrimary,
+                  child: Column(children: [
+                    Container(
+                        width: 350.h,
+                        margin: EdgeInsets.only(left: 16.h, right: 23.h),
+                        child: Text(
+                            "Make payment to confirm your appointment with your doctor. ",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodyLarge!
+                                .copyWith(height: 1.50))),
+                    SizedBox(height: 8.v),
+                    _buildProgress(context),
+                    SizedBox(height: 40.v),
+                    _buildDoctor1(context),
+                    SizedBox(height: 16.v),
+                    Divider(indent: 16.h, endIndent: 16.h),
+                    SizedBox(height: 35.v),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 16.h),
+                            child: Text("ORDER SUMMARY",
+                                style:
+                                    CustomTextStyles.titleMediumBluegray500))),
+                    SizedBox(height: 21.v),
+                    _buildFrame(context),
+                    SizedBox(height: 16.v),
+                    _buildTile(context),
+                    SizedBox(height: 32.v),
+                    Divider(indent: 16.h, endIndent: 16.h),
+                    SizedBox(height: 35.v),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 16.h),
+                            child: Text("Use Health Insurance",
+                                style: CustomTextStyles.titleMediumGray900))),
+                    SizedBox(height: 21.v),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                            width: 343.h,
+                            margin: EdgeInsets.only(left: 16.h, right: 30.h),
+                            child: Text(
+                                "Add your insurance plan for additional potential savings and discounts.",
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: theme.textTheme.bodyLarge!
+                                    .copyWith(height: 1.50)))),
+                    SizedBox(height: 14.v),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 16.h),
+                            child: Row(children: [
+                              CustomImageView(
+                                  imagePath: ImageConstant.imgAddPrimary,
+                                  height: 24.adaptSize,
+                                  width: 24.adaptSize),
+                              Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 10.h, bottom: 3.v),
+                                  child: Text("Add Insurance",
+                                      style:
+                                          CustomTextStyles.titleMediumPrimary))
+                            ]))),
+                    SizedBox(height: 32.v),
+                    Divider(indent: 16.h, endIndent: 16.h),
+                    SizedBox(height: 35.v),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 16.h),
+                            child: Text("Select Payment Method",
+                                style: CustomTextStyles.titleMediumBlack900))),
+                    SizedBox(height: 25.v),
+                    _buildInputField(context),
+                    SizedBox(height: 25.v),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 16.h),
+                            child: Text("Card Holders Name",
+                                style:
+                                    CustomTextStyles.titleSmallBluegray80001))),
+                    SizedBox(height: 7.v),
+                    _buildName(context),
+                    SizedBox(height: 21.v),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 16.h),
+                            child: Text("Card Numbers",
+                                style:
+                                    CustomTextStyles.titleSmallBluegray80001))),
+                    SizedBox(height: 7.v),
+                    _buildCardNumber(context),
+                    SizedBox(height: 21.v),
+                    _buildFrame1(context),
+                    SizedBox(height: 23.v),
+                  ])))),
+      bottomNavigationBar: _buildInputField1(context),
+    ));
   }
 
   /// Section Widget
@@ -166,10 +152,8 @@ class BookAppointmentOneScreen extends StatelessWidget {
         title: Padding(
             padding: EdgeInsets.only(left: 4.h),
             child: Row(children: [
-              AppbarSubtitle(
-                  text: "Back", margin: EdgeInsets.symmetric(vertical: 1.v)),
               AppbarTitle(
-                  text: "Nomso’s Visit", margin: EdgeInsets.only(left: 61.h))
+                  text: "Tadael’s Visit", margin: EdgeInsets.only(left: 61.h))
             ])),
         styleType: Style.bgShadow);
   }
@@ -312,7 +296,7 @@ class BookAppointmentOneScreen extends StatelessWidget {
                           ])),
                       Padding(
                           padding: EdgeInsets.only(left: 39.h, bottom: 39.v),
-                          child: Text("₦5,700",
+                          child: Text("\$570",
                               style: CustomTextStyles.titleMediumGray900_1))
                     ]),
                 SizedBox(height: 16.v),
@@ -328,7 +312,7 @@ class BookAppointmentOneScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Discount ", style: theme.textTheme.titleMedium),
-                      Text("₦0.00",
+                      Text("\$0.00",
                           style: CustomTextStyles.titleMediumBluegray500)
                     ]),
                 SizedBox(height: 19.v),
@@ -344,7 +328,7 @@ class BookAppointmentOneScreen extends StatelessWidget {
                   children: [
                     Text("Today’s Total",
                         style: CustomTextStyles.titleMediumGray5001),
-                    Text("₦5,700", style: CustomTextStyles.titleMediumGray5001)
+                    Text("\$570", style: CustomTextStyles.titleMediumGray5001)
                   ]))
         ]));
   }
@@ -496,7 +480,7 @@ class BookAppointmentOneScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildPay5700(BuildContext context) {
     return CustomOutlinedButton(
-        text: "Pay ₦5,700 ",
+        text: "Pay \$570",
         rightIcon: Container(
             margin: EdgeInsets.only(left: 8.h),
             child: CustomImageView(
@@ -512,7 +496,7 @@ class BookAppointmentOneScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildInputField1(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 42.v),
+        padding: EdgeInsets.symmetric(horizontal: 12.h, vertical: 2.v),
         decoration: AppDecoration.outlineBlack,
         child: _buildPay5700(context));
   }
@@ -524,6 +508,7 @@ class BookAppointmentOneScreen extends StatelessWidget {
 
   /// Navigates to the popUpScreen when the action is triggered.
   onTapPay5700(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.popUpScreen);
+    Navigator.restorablePushNamedAndRemoveUntil(
+        context, AppRoutes.homeLayout, (route) => false);
   }
 }

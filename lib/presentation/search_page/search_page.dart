@@ -88,6 +88,6 @@ class SearchPage extends StatelessWidget {
 
   /// Navigates to the bookAppointmentFourScreen when the action is triggered.
   onTapComponent(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.bookAppointmentFourScreen);
+    // Navigator.pushNamed(context, AppRoutes.bookAppointmentFourScreen);
   }
 }

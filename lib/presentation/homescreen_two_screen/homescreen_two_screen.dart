@@ -15,13 +15,8 @@ class HomescreenTwoScreen extends StatelessWidget {
           width: double.maxFinite,
           child: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 87.h,
-                vertical: 339.v,
-              ),
-              decoration: AppDecoration.fillPrimary.copyWith(
-                borderRadius: BorderRadiusStyle.roundedBorder195,
-              ),
+              height: 844.h,
+              decoration: AppDecoration.fillPrimary,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +28,7 @@ class HomescreenTwoScreen extends StatelessWidget {
                         text: TextSpan(
                           children: [
                             TextSpan(
-                              text: "MediCare",
+                              text: "MindCare",
                               style: theme.textTheme.displaySmall,
                             ),
                             TextSpan(

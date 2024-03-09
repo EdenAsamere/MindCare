@@ -22,6 +22,12 @@ class CustomButtonStyles {
           borderRadius: BorderRadius.circular(8.h),
         ),
       );
+  static ButtonStyle get fillBlue => ElevatedButton.styleFrom(
+        backgroundColor: appTheme.blue80001,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.h),
+        ),
+      );
 
   // Outline button style
   static ButtonStyle get outlineBlueGray => OutlinedButton.styleFrom(

@@ -4,7 +4,7 @@ import 'package:mindcare_plus/core/app_export.dart';
 class CustomBottomBar extends StatefulWidget {
   CustomBottomBar({this.onChanged});
 
-  Function(BottomBarEnum)? onChanged;
+  Function(int)? onChanged;
 
   @override
   CustomBottomBarState createState() => CustomBottomBarState();
@@ -19,12 +19,6 @@ class CustomBottomBarState extends State<CustomBottomBar> {
       activeIcon: ImageConstant.imgNavHomeBlueGray500,
       title: "Home",
       type: BottomBarEnum.Home,
-    ),
-    BottomMenuModel(
-      icon: ImageConstant.imgNavSearchPrimary,
-      activeIcon: ImageConstant.imgNavSearchPrimary,
-      title: "Search",
-      type: BottomBarEnum.Search,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgNavCalendar,
@@ -82,14 +76,14 @@ class CustomBottomBarState extends State<CustomBottomBar> {
                   imagePath: bottomMenuList[index].icon,
                   height: 24.adaptSize,
                   width: 24.adaptSize,
-                  color: theme.colorScheme.primary,
+                  color: appTheme.blueGray500,
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 1.v),
                   child: Text(
                     bottomMenuList[index].title ?? "",
                     style: CustomTextStyles.labelLargePrimary.copyWith(
-                      color: theme.colorScheme.primary,
+                      color: appTheme.blueGray500,
                     ),
                   ),
                 ),
@@ -103,14 +97,14 @@ class CustomBottomBarState extends State<CustomBottomBar> {
                   imagePath: bottomMenuList[index].activeIcon,
                   height: 24.adaptSize,
                   width: 24.adaptSize,
-                  color: appTheme.blueGray500,
+                  color: theme.colorScheme.primary,
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 1.v),
                   child: Text(
                     bottomMenuList[index].title ?? "",
                     style: theme.textTheme.labelLarge!.copyWith(
-                      color: appTheme.blueGray500,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
                 ),
@@ -121,7 +115,7 @@ class CustomBottomBarState extends State<CustomBottomBar> {
         }),
         onTap: (index) {
           selectedIndex = index;
-          widget.onChanged?.call(bottomMenuList[index].type);
+          widget.onChanged?.call(index);
           setState(() {});
         },
       ),
@@ -131,7 +125,6 @@ class CustomBottomBarState extends State<CustomBottomBar> {
 
 enum BottomBarEnum {
   Home,
-  Search,
   Calendar,
   Message,
   Profile,

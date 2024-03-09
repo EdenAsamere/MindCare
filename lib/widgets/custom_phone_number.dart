@@ -1,5 +1,5 @@
 import 'package:country_pickers/country_pickers.dart';
-import 'package:country_pickers/utils/utils.dart';
+// import 'package:country_pickers/utils/utils.dart';
 import 'package:country_pickers/country.dart';
 import 'package:mindcare_plus/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -39,10 +39,7 @@ class CustomPhoneNumber extends StatelessWidget {
             color: appTheme.gray9000c,
             spreadRadius: 2.h,
             blurRadius: 2.h,
-            offset: Offset(
-              0,
-              1,
-            ),
+            offset: Offset(0, 1),
           ),
         ],
       ),
@@ -79,16 +76,11 @@ class CustomPhoneNumber extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: 10.h,
-                right: 5.h,
-              ),
-              child: CustomTextFormField(
-                width: 258.h,
-                controller: controller,
-                hintText: "+234 (999) 000-0000",
-              ),
+            child: CustomTextFormField(
+              width: 258.h,
+              controller: controller,
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 10.h, vertical: 15.v),
             ),
           ),
         ],
